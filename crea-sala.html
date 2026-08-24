@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Crea Sala</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Mukta+Mahee:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Fredoka',sans-serif;background:#efe9ff} 
+  #mobile-drawer{transition:transform .3s ease-in-out}
+  .custom-input:focus { outline: none; }
+  .custom-input::placeholder { color: #000; opacity: 1; text-align: center; font-weight: bold; }
+  .checkbox-inner { transition: background-color 0.2s; }
+  .checkbox-active .checkbox-inner { background-color: #1D3E89 !important; }
+</style>
+</head>
+<body class="min-h-screen flex bg-[#efe9ff]">
+<header class="bg-[#efe9ff] text-[#4F0377] flex justify-between items-center px-4 md:px-10 h-[72px] w-full fixed top-0 z-50">
+<div class="flex items-center gap-4"><button class="lg:hidden bg-[#d8b4fe] w-[110px] h-[44px] rounded-full flex items-center justify-center" id="menu-btn"><span class="material-symbols-outlined text-black">menu</span></button><span class="hidden lg:block font-bold text-[22px]">En tus zapatos</span></div>
+<div class="flex items-center gap-4"><div class="relative"><button class="w-11 h-11 bg-[#d8b4fe] rounded-full flex items-center justify-center" id="profile-btn"><span class="material-symbols-outlined text-white" style="font-variation-settings:'FILL' 1">person</span></button>
+<div class="absolute right-0 top-full mt-2 w-64 bg-[#4F0377] text-white shadow-2xl rounded-[24px] border border-white/20 transition-all duration-200 z-[70] py-2 origin-top-right opacity-0 invisible scale-95" id="profile-menu">
+<div class="px-4 py-2 border-b border-white/20 mb-1"><p class="font-bold text-[14px]">Editar perfil</p><div class="mt-2 space-y-1" style="font-family:'Mukta Mahee'"><a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg" href="#"><span class="material-symbols-outlined text-xl">person</span>Nombre</a><a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg" href="#"><span class="material-symbols-outlined text-xl">image</span>Foto de perfil</a><a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg" href="#"><span class="material-symbols-outlined text-xl">group</span>Grupos</a><a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg" href="#"><span class="material-symbols-outlined text-xl">call</span>Teléfono</a><a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg" href="#"><span class="material-symbols-outlined text-xl">mail</span>Correo</a></div></div><div class="py-1" style="font-family:'Mukta Mahee'"><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10" href="#"><span class="material-symbols-outlined">manage_accounts</span>Cuenta</a><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10" href="#"><span class="material-symbols-outlined">link</span>Enlaces</a><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10" href="#"><span class="material-symbols-outlined">qr_code_2</span>QR</a></div><div class="border-t border-white/20 mt-1 pt-1" style="font-family:'Mukta Mahee'"><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10" href="#"><span class="material-symbols-outlined">logout</span>Cerrar sesión</a></div>
+</div></div></div>
+</header>
+<nav class="bg-[#4F0377] text-white rounded-r-[24px] h-full w-80 shadow-lg fixed inset-y-0 left-0 z-[60] flex flex-col pt-20 pb-8 lg:translate-x-0 -translate-x-full" id="mobile-drawer">
+<div class="px-6 pb-6 border-b border-white/20 mb-4"><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-white text-[#4F0377] flex items-center justify-center font-bold text-xl">F</div><div><h2 class="font-bold text-[18px]">En tus zapatos</h2><p class="text-[12px] text-white/80 font-normal">Caminando juntos</p></div></div></div>
+<div class="flex-1 overflow-y-auto py-2"><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="#"><span class="material-symbols-outlined">home</span>Inicio</a><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="#"><span class="material-symbols-outlined">groups</span>Roles</a><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="#"><span class="material-symbols-outlined">explore</span>Escenarios</a><a class="bg-white/20 text-white rounded-full mx-2 px-4 py-3 flex items-center gap-4 mt-2" href="#"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span>Puntos</a><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="#"><span class="material-symbols-outlined">help</span>Ayuda</a></div>
+<div class="px-4 py-4 border-t border-white/20"><a class="text-white/80 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="#"><span class="material-symbols-outlined">settings</span>Ajustes</a></div>
+</nav>
+<main class="flex-1 w-full lg:pl-80 pt-[88px] pb-12 min-h-screen flex flex-col items-center justify-center relative">
+<div class="absolute top-32 left-[35%] w-8 h-8 bg-[#d8b4fe] rounded-full hidden lg:block"></div><div class="absolute top-[230px] right-[6%] w-3 h-3 bg-[#d8b4fe] rounded-full hidden lg:block"></div>
+<div class="w-full px-5 max-w-[420px] lg:max-w-[1100px]"><div class="lg:grid lg:grid-cols-[1fr_380px] lg:gap-16 lg:items-center">
+<div class="flex flex-col items-center"><div class="relative mt-2"><div class="absolute -inset-2 bg-[#c084fc] rounded-[60%_40%_30%_70%_/_60%_30%_70%_40%] rotate-[-4deg]"></div><div class="relative bg-[#4F0377] text-white px-10 py-5 rounded-[60px] shadow-lg"><h1 class="text-[42px] font-bold tracking-wide leading-none">CREA SALA</h1></div></div><p class="mt-6 font-bold text-[16px] tracking-widest text-black uppercase">ELIGE UN ROL PON TU NOMBRE</p><div class="relative mt-6 w-full bg-[#4F0377] rounded-[32px] p-6 pt-7 pb-8 text-white shadow-xl">
+<div class="flex justify-between items-center py-2.5"><span class="text-[18px]" style="font-family:'Mukta Mahee'">Integrantes</span><div class="flex items-center gap-4 text-[22px] font-bold"><button class="w-6 h-6 flex items-center justify-center" onclick="updateCounter('integrantes', -1)">-</button><span id="integrantes-count" class="">12</span><button class="w-6 h-6 flex items-center justify-center" onclick="updateCounter('integrantes', 1)">+</button></div></div>
+<div class="flex justify-between items-center py-2.5"><span class="text-[18px]" style="font-family:'Mukta Mahee'">Situaciones</span><div class="flex items-center gap-4 text-[22px] font-bold"><button class="w-6 h-6 flex items-center justify-center" onclick="updateCounter('situaciones', -1)">-</button><span id="situaciones-count" class="">28</span><button class="w-6 h-6 flex items-center justify-center" onclick="updateCounter('situaciones', 1)">+</button></div></div>
+<div class="flex justify-between items-center py-2.5 cursor-pointer" onclick="toggleCheckbox(this)"><span class="text-[18px] leading-tight" style="font-family:'Mukta Mahee'">Situaciones con<br>mascota</span><div class="w-7 h-7 rounded-full border-2 border-white/70 flex items-center justify-center"><div class="w-3.5 h-3.5 bg-white rounded-full checkbox-inner"></div></div></div>
+<div class="flex justify-between items-center py-2.5 cursor-pointer" onclick="toggleCheckbox(this)"><span class="text-[18px]" style="font-family:'Mukta Mahee'">Roles aleatorios</span><div class="w-7 h-7 rounded-full border-2 border-white/70 flex items-center justify-center"><div class="w-3.5 h-3.5 bg-white rounded-full checkbox-inner"></div></div></div>
+<div class="flex justify-between items-center py-2.5 cursor-pointer" onclick="toggleCheckbox(this)"><span class="text-[18px] leading-tight" style="font-family:'Mukta Mahee'">Mas familiares<br>( Abuelos )</span><div class="w-7 h-7 rounded-full border-2 border-white/70 flex items-center justify-center"><div class="w-3.5 h-3.5 bg-white rounded-full checkbox-inner"></div></div></div>
+</div></div>
+<div class="w-full flex flex-col items-center mt-2 lg:mt-0"><div class="w-full flex items-end h-[110px] gap-4 justify-center"><div class="bg-[#4F0377] text-white text-[13px] leading-tight rounded-[18px] px-4 py-3 w-[165px] relative ml-2 mb-10" style="font-family:'Mukta Mahee'">Inicia sesión para guardar la sala con toda tu familia<div class="absolute -right-2 bottom-3 w-0 h-0 border-l-[10px] border-l-[#4F0377] border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent"></div></div><div class="w-[110px] h-[110px] overflow-hidden flex items-end"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGKtFQhQTKrvCOCn_TFCT6hbdh-i91KPJbwBqGPxQGS269VthZjOtMSFeXvRM7CF0TeDBMS17YTA-nGxeqBm5Ts_-b6OoQx2rKLwaWT4ABEMRG9qMWSobfKiUXokhSdGdJrVQuVPjWE-H97I1o5arMTvdBU-TvCf2nzFNoqsDM-zdB7Q5ViQqsvgEv4Q3F7LvhiKz8fRVMG5Hyo0B9OOVnO1SbZw8X6dOxmz0O0AcasdZiBp2ycWm5Opx0hZIRQTwSbw" alt="Profile Silhouette" class="w-full h-full object-contain"></div></div><div class="w-full flex flex-col items-center -mt-2"><p class="text-[11px] font-bold tracking-[0.2em] opacity-60 mb-2">NOMBRE DE LA FAMILIA</p><div class="w-full bg-white rounded-full h-[62px] flex items-center justify-center border border-black/15 shadow-sm"><div class="text-center w-full px-8"><input class="custom-input w-full text-center text-[22px] font-bold leading-none border-none bg-transparent p-0 focus:ring-0 text-black placeholder:text-black" placeholder="Nombre aqui" type="text"><div class="w-[140px] h-[1px] bg-black/60 mx-auto mt-1"></div></div></div><button class="mt-6 bg-[#4F0377] text-white font-bold text-[20px] tracking-wide px-12 py-3.5 rounded-full shadow-lg active:scale-95 transition-transform hover:bg-[#6b04a3]">LISTO</button></div></div>
+</div></div>
+</main>
+<script>
+const menuBtn=document.getElementById('menu-btn');
+const profileBtn=document.getElementById('profile-btn');
+const mobileDrawer=document.getElementById('mobile-drawer');
+const profileMenu=document.getElementById('profile-menu');
+
+menuBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    mobileDrawer.classList.toggle('-translate-x-full');
+    profileMenu.classList.add('opacity-0','invisible','scale-95');
+});
+
+profileBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    profileMenu.classList.toggle('opacity-0');
+    profileMenu.classList.toggle('invisible');
+    profileMenu.classList.toggle('scale-95');
+    mobileDrawer.classList.add('-translate-x-full');
+});
+
+document.addEventListener('click',(e)=>{
+    if(!profileMenu.contains(e.target)&&!profileBtn.contains(e.target))
+        profileMenu.classList.add('opacity-0','invisible','scale-95');
+    if(!mobileDrawer.contains(e.target)&&!menuBtn.contains(e.target)&&window.innerWidth<1024)
+        mobileDrawer.classList.add('-translate-x-full');
+});
+
+let counts = {
+    integrantes: 4,
+    situaciones: 4
+};
+
+const limits = {
+    integrantes: { min: 2, max: 12 },
+    situaciones: { min: 2, max: 28 }
+};
+
+function updateCounter(type, change) {
+    const newCount = counts[type] + change;
+    if (newCount >= limits[type].min && newCount <= limits[type].max) {
+        counts[type] = newCount;
+        document.getElementById(`${type}-count`).textContent = counts[type];
+    }
+}
+
+function toggleCheckbox(element) {
+    element.classList.toggle('checkbox-active');
+    const inner = element.querySelector('.checkbox-inner');
+    if (element.classList.contains('checkbox-active')) {
+        inner.classList.replace('bg-white', 'bg-[#1D3E89]');
+    } else {
+        inner.classList.replace('bg-[#1D3E89]', 'bg-white');
+    }
+}
+</script>
+
+</body></html>
