@@ -1,0 +1,54 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En tus zapatos - Salas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Mukta+Mahee:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#4f0377","mom":"#4F0377","pattern":"#EBECEF","primary":"#31004c","surface":"#fff7fc"},borderRadius:{"card":"1.5rem"},fontFamily:{"body-md":["Mukta Mahee","sans-serif"],"headline-lg":["Fredoka","sans-serif"]}}}};</script>
+<style>body{background-color:#fff7fc;background-image:radial-gradient(#EBECEF 2px,transparent 2px);background-size:32px 32px}#mobile-drawer{transition:transform 0.3s ease-in-out}</style>
+</head>
+<body class="font-body-md min-h-screen flex antialiased">
+<header class="bg-[#fff7fc] flex justify-between items-center px-4 md:px-10 h-16 w-full fixed top-0 z-50 shadow-lg">
+<div class="flex items-center gap-4"><button id="menu-btn" aria-label="Menu" class="lg:hidden p-2 text-[#31004c] hover:opacity-80 active:scale-95 min-w-[44px] min-h-[44px]"><span class="material-symbols-outlined">menu</span></button><span class="font-bold text-[20px] tracking-tight text-[#31004c]" style="font-family:Fredoka">En tus zapatos</span></div>
+<div class="flex items-center gap-4"><div class="relative"><button id="profile-btn" class="p-2 text-[#31004c] hover:opacity-80 active:scale-95 rounded-full flex items-center gap-2 min-w-[44px] min-h-[44px]"> <span class="material-symbols-outlined">account_circle</span><span class="hidden lg:block font-bold text-[16px]">Mi Perfil</span></button>
+<div id="profile-menu" class="absolute right-0 top-full mt-2 w-64 bg-[#4F0377] text-white shadow-xl rounded-[24px] border border-white/20 transition-all duration-200 z-[70] py-2 origin-top-right opacity-0 invisible scale-95">
+<div class="px-4 py-2 border-b border-white/20 mb-1"><p class="font-bold text-white" style="font-family:Fredoka">Editar perfil</p><div class="mt-2 space-y-1">
+<a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg min-h-[44px]" href="#"><span class="material-symbols-outlined text-xl">person</span><span class="">Nombre</span></a>
+<a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg min-h-[44px]" href="#"><span class="material-symbols-outlined text-xl">image</span><span class="">Foto de perfil</span></a>
+<a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg min-h-[44px]" href="#"><span class="material-symbols-outlined text-xl">group</span><span class="">Grupos</span></a>
+<a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg min-h-[44px]" href="#"><span class="material-symbols-outlined text-xl">call</span><span class="">Teléfono</span></a>
+<a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg min-h-[44px]" href="#"><span class="material-symbols-outlined text-xl">mail</span><span class="">Correo</span></a>
+</div></div>
+<div class="py-1"><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 min-h-[44px]" href="#"><span class="material-symbols-outlined">manage_accounts</span><span class="">Cuenta</span></a><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 min-h-[44px]" href="#"><span class="material-symbols-outlined">link</span><span class="">Enlaces</span></a><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 min-h-[44px]" href="#"><span class="material-symbols-outlined">qr_code_2</span><span class="">QR</span></a></div>
+<div class="border-t border-white/20 mt-1 pt-1"><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 min-h-[44px]" href="#"><span class="material-symbols-outlined">logout</span><span class="">Cerrar sesión</span></a></div>
+</div></div></div>
+</header>
+<nav id="mobile-drawer" class="bg-[#4F0377] text-white rounded-r-[24px] h-full w-80 shadow-lg fixed inset-y-0 left-0 z-[60] flex flex-col pt-20 pb-8 -translate-x-full lg:translate-x-0">
+<div class="px-6 pb-6 border-b border-white/20 mb-4"><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-white text-[#4F0377] flex items-center justify-center font-bold text-xl">F</div><div><h2 class="font-bold text-white" style="font-family:Fredoka">En tus zapatos</h2><p class="text-[12px] text-white/80">Caminando juntos</p></div></div></div>
+<div class="flex-1 overflow-y-auto py-2">
+<a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2 min-h-[44px]" href="#"><span class="material-symbols-outlined">home</span><span class="">Inicio</span></a>
+<a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2 min-h-[44px]" href="#"><span class="material-symbols-outlined">groups</span><span class="">Roles</span></a>
+<a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2 min-h-[44px]" href="#"><span class="material-symbols-outlined">explore</span><span class="">Escenarios</span></a><a class="bg-white text-[#4F0377] rounded-full mx-2 px-4 py-3 flex items-center gap-4 mt-2 min-h-[44px] font-bold shadow" href="#" aria-current="page"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">meeting_room</span><span class="">Salas</span></a><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2 min-h-[44px]" href="#"><span class="material-symbols-outlined">add_circle</span><span class="">Crear sala</span></a>
+
+
+
+<div class="border-t border-white/20 mt-4 pt-2"><a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full min-h-[44px]" href="#"><span class="material-symbols-outlined">settings</span><span class="">Ajustes</span></a></div></div>
+</nav>
+<main class="flex-1 w-full lg:pl-80 pt-20 pb-24 min-h-screen flex-col items-center justify-center relative z-10 flex bg-[#EDEEFF]" style="background-image:radial-gradient(#EBECEF 2px,transparent 2px);background-size:32px 32px">
+<div class="w-full max-w-[360px] px-5 flex flex-col items-center">
+<div class="relative mt-4 mb-2"><div class="absolute -top-3 -left-10 w-[140px] h-[90px] bg-[#D8B4FE]/60 rounded-[60%_40%_30%_70%/60%_30%_70%_40%]"></div><div class="absolute -bottom-2 -right-10 w-[110px] h-[80px] bg-[#E9D5FF]/70 rounded-[50%_50%_30%_70%/60%_30%_70%_40%]"></div><div class="absolute -top-2 right-[-12px] w-6 h-6 bg-[#D8B4FE]/80 rounded-full"></div><div class="absolute bottom-2 left-[-14px] w-5 h-5 bg-[#D8B4FE]/80 rounded-full"></div><div class="relative bg-[#6B21A8] px-10 py-5 rounded-[28px] rotate-[-2deg] shadow-xl" style="border-radius:30% 70% 40% 60% / 30% 30% 70% 70%"><h1 class="text-white text-[38px] font-black leading-none text-center" style="font-family:Fredoka">SALAS</h1></div></div>
+<p class="font-black text-black mt-4 text-[14px] tracking-[0.15em]">ELIGE TU FAMILIA</p>
+<div class="w-full mt-8 bg-gradient-to-br from-[#4F0377] via-[#6D28D9] to-[#A78BFA] rounded-[32px] p-[3px] shadow-xl hover:-translate-y-[2px] transition-transform"><div class="bg-gradient-to-br from-[#5B21B6] to-[#A78BFA] rounded-[29px] border border-white/80 p-6 flex flex-col items-center text-center min-h-[260px] justify-center relative"><div class="absolute inset-0 border border-white/90 rounded-[28px] m-[6px] pointer-events-none"></div><h2 class="text-white font-black text-[42px] leading-[0.9]" style="font-family:Fredoka">FAMILIA<br>TORRES</h2><p class="text-white/90 text-[16px] font-semibold mt-3">6 Integrantes</p><div class="mt-4 w-[64px] h-[64px] bg-[#EDEEFF]/90 rounded-full flex flex-col items-center justify-end pb-1"><div class="w-8 h-8 bg-white rounded-full"></div><div class="w-10 h-5 bg-white rounded-t-full -mt-1"></div></div><span class="text-[10px] font-bold text-white/80 mt-1">MARTA02</span></div></div>
+<div class="w-full mt-6 bg-gradient-to-br from-[#4F0377] via-[#6D28D9] to-[#A78BFA] rounded-[32px] p-[3px] shadow-xl hover:-translate-y-[2px] transition-transform"><div class="bg-gradient-to-br from-[#5B21B6] to-[#A78BFA] rounded-[29px] border border-white/80 p-6 flex flex-col items-center text-center min-h-[260px] justify-center relative"><div class="absolute inset-0 border border-white/90 rounded-[28px] m-[6px] pointer-events-none"></div><h2 class="text-white font-black text-[42px] leading-[0.9]" style="font-family:Fredoka">FAMILIA<br>ÁLVAREZ</h2><p class="text-white/90 text-[16px] font-semibold mt-6">4 Integrantes</p></div></div>
+</div>
+</main>
+<script>
+  const menuBtn=document.getElementById('menu-btn');const profileBtn=document.getElementById('profile-btn');const mobileDrawer=document.getElementById('mobile-drawer');const profileMenu=document.getElementById('profile-menu');
+  menuBtn.addEventListener('click',(e)=>{e.stopPropagation();mobileDrawer.classList.toggle('-translate-x-full');profileMenu.classList.add('opacity-0','invisible','scale-95');});
+  profileBtn.addEventListener('click',(e)=>{e.stopPropagation();profileMenu.classList.toggle('opacity-0');profileMenu.classList.toggle('invisible');profileMenu.classList.toggle('scale-95');mobileDrawer.classList.add('-translate-x-full');});
+  document.addEventListener('click',(e)=>{if(!profileMenu.contains(e.target)&&!profileBtn.contains(e.target)){profileMenu.classList.add('opacity-0','invisible','scale-95');}if(!mobileDrawer.contains(e.target)&&!menuBtn.contains(e.target)&&window.innerWidth<1024){mobileDrawer.classList.add('-translate-x-full');}});
+  window.addEventListener('resize',()=>{if(window.innerWidth>=1024){profileMenu.classList.add('opacity-0','invisible','scale-95');}});
+</script>
+
+
+</body></html>
