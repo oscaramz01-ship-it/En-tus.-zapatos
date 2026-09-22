@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro 2 - Final Corregido</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Fredoka',sans-serif; background:#F3F0FF;}
+.patron-huella{
+    background-image: url('../images/huella zapato.png');
+    background-size: 42px 32px;
+    background-repeat: repeat;
+    opacity: 0.22;
+  }
+.globo-con-cola{position:relative; transition: all.2s ease;}
+.globo-con-cola:hover{transform: translateY(-2px) scale(1.02);}
+ @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.float-1{animation:float 3s ease-in-out infinite}
+.float-2{animation:float 3.2s ease-in-out infinite.2s}
+.carta-hover{transition: all.25s ease;}
+.carta-hover:hover{transform: translateY(-4px) rotate(0deg) scale(1.05)!important; z-index:30!important; box-shadow: 0 12px 24px rgba(0,0,0,.2);}
+</style>
+</head>
+<body class="flex justify-center">
+<div class="w-[390px] bg-[#F3F0FF] min-h-screen relative overflow-hidden pb-6">
+
+  <div class="flex items-start px-2 pt-6 relative">
+    <div class="relative w-[145px] h-[195px] ml-[-10px] -mt-2 flex-shrink-0 float-1">
+      <img src="../images/perro.png" class="w-full h-full object-contain">
+      <svg class="absolute left-[78%] top-[52%] w-[60px] h-[40px] pointer-events-none" viewBox="0 0 60 40" fill="none">
+        <path d="M2 20 Q 20 5, 52 8" stroke="#6A1BBE" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M48 4 L 54 8 L 47 12" stroke="#6A1BBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <svg class="absolute left-[80%] top-[68%] w-[60px] h-[50px] pointer-events-none" viewBox="0 0 60 50" fill="none">
+        <path d="M2 8 Q 18 28, 50 35" stroke="#6A1BBE" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M46 31 L 52 36 L 44 40" stroke="#6A1BBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="flex flex-col gap-3 ml-4 mt-10 z-10">
+      <div class="globo-con-cola bg-[#6A1BBE] text-black text-[13px] leading-[15px] px-4 py-3 rounded-[18px] rounded-bl-[4px] max-w-[175px] shadow-[0_6px_16px_rgba(106,27,190,.3)] font-bold">Asegúrate de tener las cartas físicas y escanear el código QR</div>
+      <div class="globo-con-cola bg-[#6A1BBE] text-black text-[13px] leading-[15px] px-4 py-3 rounded-[18px] rounded-bl-[4px] max-w-[175px] shadow-[0_6px_16px_rgba(106,27,190,.3)] font-bold">Aquí te daremos una pequeña explicación del uso que tienen las cartas físicas</div>
+    </div>
+  </div>
+  <div class="w-7 h-7 bg-[#D4BDF0] rounded-full ml-[55px] mt-1 float-2"></div>
+
+  <div class="relative h-[195px] mt-1 flex justify-center">
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#4A1A8A] overflow-hidden shadow-lg carta-hover" style="transform: rotate(-28deg) translateX(-105px) translateY(-8px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/mama.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[9px] font-bold mt-auto">MAMÁ</span></div></div>
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#1E3A8A] overflow-hidden shadow-lg carta-hover" style="transform: rotate(-18deg) translateX(-55px) translateY(-18px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/papa.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[9px] font-bold mt-auto">PAPÁ</span></div></div>
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#C4007A] overflow-hidden shadow-lg carta-hover" style="transform: rotate(-8deg) translateX(-5px) translateY(-22px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/hija.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[9px] font-bold mt-auto">HIJA</span></div></div>
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#0A8A80] overflow-hidden shadow-lg carta-hover" style="transform: rotate(4deg) translateX(45px) translateY(-22px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/hijo.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[9px] font-bold mt-auto">HIJO</span></div></div>
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#A8C94A] overflow-hidden shadow-lg carta-hover" style="transform: rotate(14deg) translateX(90px) translateY(-18px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/abuelo.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[9px] font-bold mt-auto">ABUELO</span></div></div>
+    <div class="absolute w-[92px] h-[132px] rounded-[12px] bg-[#D35A7A] overflow-hidden shadow-lg carta-hover" style="transform: rotate(22deg) translateX(130px) translateY(-8px);"><div class="patron-huella absolute inset-0"></div><div class="relative p-[6px] flex flex-col h-full"><img src="../images/logo en blanco.png" class="w-[36px]"><img src="../images/abuela.png" class="w-[58px] h-[62px] mx-auto mt-2" style="filter: brightness(0) invert(1);"><span class="text-white text-[8px] font-bold mt-auto">ABUELA</span></div></div>
+  </div>
+
+        <!-- BANNER 1 - BAJADO UN POCO, SIN TOCAR BORDES -->
+  <div class="relative w-full h-[150px] -mt-1">
+    <div class="absolute left-[50px] top-[6px] w-9 h-9 bg-[#D4BDF0] rounded-full z-20 float-1"></div>
+    <div class="absolute left-[75px] top-[30px] w-4 h-4 bg-[#E9D8FF] rounded-full z-20 float-2"></div>
+    <div class="absolute right-[68px] top-[6px] w-9 h-9 bg-[#D4BDF0] rounded-full z-20 float-2"></div>
+    <div class="absolute right-[48px] top-[30px] w-5 h-5 bg-[#E9D8FF] rounded-full z-20 float-1"></div>
+    <img src="../images/banner 2.png" class="absolute inset-0 w-[108%] -ml-[4%] h-full object-fill z-10 drop-shadow-[0_8px_16px_rgba(106,27,190,.2)]">
+    <div class="absolute inset-0 z-20 flex items-start justify-center" style="top: 32px;">
+      <div class="text-center" style="padding-left: 18%; padding-right: 26%;">
+        <p class="text-black font-bold text-[10px] leading-[1.2]">Cada carta es una representación<br>de rol en tu familia, dependiendo<br>el rol que te salga tendrás diferentes<br>situaciones</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative px-3 mt-2 h-[310px]">
+    <!-- BANNER 2 - TEXTO CORRIDO A LA DERECHA, NO TOCA DECORACION -->
+    <div class="absolute right-12 top-0 w-[200px] h-[110px] bg-[#B07EEB] rounded-[28px] p-3 z-10 shadow-[0_8px_20px_rgba(176,126,235,.35)] float-1">
+      <div class="absolute -top-2 -left-3 w-16 h-10 bg-[#5E1EB5] rounded-[16px] -rotate-12 -z-10"></div>
+      <div class="w-full h-full flex items-center justify-center">
+        <p class="text-black font-bold text-[10.5px] leading-[1.25] text-center" style="padding-left: 28px; padding-right: 6px;">
+          ¡Escribe que harías tú en las distintas situaciones que se presenten durante la ronda y ponte por un momento en el lugar del otro!
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute left-6 top-6 w-[78px] h-[100px] bg-white border-[2px] border-[#5E1EB5] rounded-[8px] p-1.5 rotate-[-18deg] z-20 carta-hover shadow-[0_4px_12px_rgba(0,0,0,.1)]"><div class="bg-[#5E1EB5] text-white text-[6px] font-bold px-1 py-[1px] -mt-2 -ml-1 w-[65px] text-center rounded-sm">TU RESPUESTA</div><div class="mt-[6px] flex flex-col gap-[5px]"><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div><div class="h-[2px] bg-[#5E1EB5]"></div></div></div>
+    <div class="absolute left-[68px] top-[60px] w-[78px] h-[100px] bg-white border-[2px] border-[#0A8A80] rounded-[8px] p-1.5 rotate-[-30deg] z-20 carta-hover shadow-[0_4px_12px_rgba(0,0,0,.1)]"><div class="bg-[#0A8A80] text-white text-[6px] font-bold px-1 py-[1px] -mt-2 -ml-1 w-[65px] text-center rounded-sm">TU RESPUESTA</div><div class="mt-[6px] flex flex-col gap-[5px]"><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div><div class="h-[2px] bg-[#0A8A80]"></div></div></div>
+    <div class="absolute left-[152px] top-[125px] w-[78px] h-[100px] bg-white border-[2px] border-[#1E3A8A] rounded-[8px] p-1.5 rotate-[-5deg] z-20 carta-hover shadow-[0_4px_12px_rgba(0,0,0,.1)]"><div class="bg-[#1E3A8A] text-white text-[6px] font-bold px-1 py-[1px] -mt-2 -ml-1 w-[65px] text-center rounded-sm">TU RESPUESTA</div><div class="mt-[6px] flex flex-col gap-[5px]"><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div><div class="h-[2px] bg-[#1E3A8A]"></div></div></div>
+    <div class="absolute left-[235px] top-[125px] w-[78px] h-[100px] bg-white border-[2px] border-[#C4007A] rounded-[8px] p-1.5 rotate-[12deg] z-20 carta-hover shadow-[0_4px_12px_rgba(0,0,0,.1)]"><div class="bg-[#C4007A] text-white text-[6px] font-bold px-1 py-[1px] -mt-2 -ml-1 w-[65px] text-center rounded-sm">TU RESPUESTA</div><div class="mt-[6px] flex flex-col gap-[5px]"><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div><div class="h-[2px] bg-[#C4007A]"></div></div></div>
+
+    <a href="inicio.html" class="absolute left-1/2 -translate-x-1/2 bottom-1 bg-[#6A1BBE] text-white font-bold text-[17px] px-14 py-3 rounded-full shadow-[0_8px_20px_rgba(106,27,190,.4)] hover:shadow-[0_12px_28px_rgba(106,27,190,.5)] hover:-translate-y-[3px] hover:bg-[#7a2bce] hover:-translate-x-1/2 active:translate-y-[0px] active:scale-[0.96] transition-all duration-200">COMENZAR</a>
+  </div>
+</div>
+</body>
+</html>

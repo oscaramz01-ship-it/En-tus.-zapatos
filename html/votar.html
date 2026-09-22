@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votar - En tus zapatos</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mukta+Mahee:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{
+  --bg-main:#EDE8FF;
+  --purple-dark:#6210CC;
+  --font-heading:'Fredoka', sans-serif;
+  --font-body:'Mukta Mahee', sans-serif;
+  --shadow-card:0px 12px 28px -4px rgba(79,3,119,0.25);
+}
+body{font-family:var(--font-body); background:var(--bg-main); background-image:radial-gradient(#EBECEF 2px, transparent 2px); background-size:32px 32px; margin:0;}
+.font-fredoka{font-family:var(--font-heading);}
+.title-blob-bg{border-radius:48% 52% 46% 54% / 44% 56% 44% 56%; box-shadow:0 10px 25px rgba(98,16,204,0.35); transform:rotate(-1deg);}
+.card-votar{
+  background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 50%, #A78BFA 100%);
+  border-radius:32px;
+  position:relative;
+  padding:28px 24px 24px;
+  box-shadow:var(--shadow-card);
+}
+.card-votar::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1.5px solid rgba(255,255,255,0.9);
+  border-radius:26px;
+  pointer-events:none;
+}
+.btn-votar{
+  background:#C9A7FF;
+  color:#fff;
+  font-family:var(--font-heading);
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.5px;
+  border-radius:100px;
+  padding:10px 26px;
+  min-height:44px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  transition:transform 0.15s, filter 0.15s;
+}
+.btn-votar:hover{transform:translateY(-2px); filter:brightness(1.05);}
+.btn-votar:active{transform:translateY(0) scale(0.96);}
+#mobile-drawer{transition:transform 0.3s ease-in-out;}
+</style>
+</head>
+<body class="min-h-screen">
+
+<header class="bg-white text-[#4F0377] flex justify-between items-center px-4 lg:px-10 h-16 w-full fixed top-0 z-50 shadow-[0_4px_10px_rgba(0,0,0,0.15)]" style="font-family:'Fredoka'">
+  <div class="flex items-center gap-3">
+    <button id="menu-btn" class="lg:hidden p-2 rounded-full hover:bg-black/5" aria-label="Menú"><span class="material-symbols-outlined">menu</span></button>
+    <span class="font-bold text-[22px]">En tus zapatos</span>
+  </div>
+  <div class="relative">
+    <button id="profile-btn" class="w-11 h-11 rounded-full bg-[#D9B8FF] flex items-center justify-center" aria-label="Perfil"><span class="material-symbols-outlined text-[#4F0377]" style="font-variation-settings:'FILL' 1">person</span></button>
+    <div id="profile-menu" class="absolute right-0 top-full mt-2 w-64 bg-[#4F0377] text-white shadow-2xl rounded-[24px] border border-white/20 opacity-0 invisible scale-95 transition-all duration-200 z-[70] py-2 origin-top-right" style="font-family:'Mukta Mahee'">
+      <div class="px-4 py-2 border-b border-white/20 mb-1"><p class="font-bold text-[16px]">Editar perfil</p>
+        <div class="mt-2 space-y-1">
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">person</span>Nombre</a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">image</span>Foto de perfil</a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">group</span>Grupos</a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">call</span>Teléfono</a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">mail</span>Correo</a>
+        </div>
+      </div>
+      <div class="py-1">
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">manage_accounts</span>Cuenta</a>
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">link</span>Enlaces</a>
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">qr_code_2</span>QR</a>
+      </div>
+      <div class="border-t border-white/20 mt-1 pt-1"><a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">logout</span>Cerrar sesión</a></div>
+    </div>
+  </div>
+</header>
+
+<nav id="mobile-drawer" class="bg-[#4F0377] text-white rounded-r-[24px] h-full w-80 shadow-lg fixed inset-y-0 left-0 z-[60] flex flex-col pt-20 pb-8 -translate-x-full lg:translate-x-0 lg:top-16">
+  <div class="px-6 pb-6 border-b border-white/20 mb-4">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-white overflow-hidden flex items-center justify-center shrink-0">
+        <img src="../images/logo.png" alt="Logo En tus zapatos" class="w-10 h-10 object-contain">
+      </div>
+      <div><h2 class="font-bold text-[18px]" style="font-family:'Fredoka'">En tus zapatos</h2><p class="text-[12px] text-white/80">Caminando juntos</p></div>
+    </div>
+  </div>
+  <div class="flex-1 overflow-y-auto py-2">
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="inicio.html"><span class="material-symbols-outlined">home</span><span>Inicio</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="roles.html"><span class="material-symbols-outlined">groups</span><span>Roles</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="ruleta-de-familia.html"><span class="material-symbols-outlined">casino</span><span>Ruleta de familia</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="vista-previa.html"><span class="material-symbols-outlined">visibility</span><span>Vista previa</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="salas.html"><span class="material-symbols-outlined">meeting_room</span><span>Salas</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="crea-sala.html"><span class="material-symbols-outlined">add_circle</span><span>Crea Sala</span></a>
+    <a class="bg-white text-[#4F0377] rounded-full mx-2 px-4 py-3 flex items-center gap-4 font-bold mt-2" href="votar.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">how_to_vote</span><span>Votar</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="puntos.html"><span class="material-symbols-outlined">star</span><span>Puntos</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="#"><span class="material-symbols-outlined">help</span><span>Ayuda</span></a>
+  </div>
+  <div class="px-4 py-4 border-t border-white/20"><a class="text-white/80 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="#"><span class="material-symbols-outlined">settings</span><span>Ajustes</span></a></div>
+</nav>
+
+<main class="w-full lg:pl-80 pt-16 min-h-screen flex justify-center relative overflow-hidden">
+<div class="w-full max-w-[600px] lg:max-w-[900px] px-5 lg:px-8 py-6 flex flex-col items-center relative z-10">
+
+  <div class="relative mt-6 flex items-center justify-center">
+    <div class="absolute -top-6 -left-10 w-[140px] h-[90px] bg-[#D8B4FE] opacity-60 rounded-[60%_40%_50%_50%/50%_60%_40%_50%] rotate-[-8deg] pointer-events-none"></div>
+    <div class="absolute -bottom-4 -right-8 w-[110px] h-[70px] bg-[#E9D5FF] opacity-80 rounded-[50%_50%_40%_60%/60%_40%_60%_40%] rotate-[12deg] pointer-events-none"></div>
+    <div class="absolute -top-2 right-[-18px] w-6 h-6 bg-[#C9A7FF] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-2 left-[-12px] w-4 h-4 bg-[#C9A7FF] rounded-full pointer-events-none"></div>
+    <div class="title-blob-bg bg-[#6210CC] px-10 py-6 flex items-center justify-center w-[220px] h-[110px] relative z-10">
+      <h1 class="font-fredoka text-[42px] font-bold text-white tracking-wide">VOTAR</h1>
+    </div>
+  </div>
+
+  <p class="font-fredoka font-bold text-[15px] tracking-wider uppercase text-black mt-6 mb-8 text-center">VOTA POR LA MEJOR RESPUESTA</p>
+
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[720px]">
+
+    <div class="card-votar flex flex-col items-center text-center">
+      <h2 class="font-fredoka font-bold text-white text-[42px] lg:text-[48px] leading-[0.95] uppercase relative z-10">DAYANA<br>TORRES</h2>
+      <p class="font-semibold text-white/95 text-[18px] mt-5 relative z-10" style="font-family:'Mukta Mahee'">4 Situaciones</p>
+      <button class="btn-votar mt-6 relative z-10" onclick="goVotar2('DAYANA TORRES')">VER Y VOTAR</button>
+    </div>
+
+    <div class="card-votar flex flex-col items-center text-center">
+      <h2 class="font-fredoka font-bold text-white text-[42px] lg:text-[48px] leading-[0.95] uppercase relative z-10">DANIEL<br>TORRES</h2>
+      <p class="font-semibold text-white/95 text-[18px] mt-5 relative z-10" style="font-family:'Mukta Mahee'">4 Situaciones</p>
+      <button class="btn-votar mt-6 relative z-10" onclick="goVotar2('DANIEL TORRES')">VER Y VOTAR</button>
+    </div>
+
+  </div>
+
+  <div class="w-[134px] h-[5px] bg-[#6210CC] rounded-full opacity-80 mt-12 mb-4 lg:hidden relative z-50"></div>
+
+</div>
+</main>
+
+<script>
+function goVotar2(nombre){
+  localStorage.setItem('votar_nombre', nombre);
+  window.location.href = 'votar2.html?name=' + encodeURIComponent(nombre);
+}
+const menuBtn=document.getElementById('menu-btn'), profileBtn=document.getElementById('profile-btn'), mobileDrawer=document.getElementById('mobile-drawer'), profileMenu=document.getElementById('profile-menu');
+menuBtn?.addEventListener('click',(e)=>{e.stopPropagation(); mobileDrawer.classList.toggle('-translate-x-full'); profileMenu.classList.add('opacity-0','invisible','scale-95');});
+profileBtn?.addEventListener('click',(e)=>{e.stopPropagation(); profileMenu.classList.toggle('opacity-0'); profileMenu.classList.toggle('invisible'); profileMenu.classList.toggle('scale-95'); if(window.innerWidth<1024) mobileDrawer.classList.add('-translate-x-full');});
+document.addEventListener('click',(e)=>{if(!profileMenu.contains(e.target)&&!profileBtn.contains(e.target)){profileMenu.classList.add('opacity-0','invisible','scale-95');} if(!mobileDrawer.contains(e.target)&&!menuBtn.contains(e.target)&&window.innerWidth<1024){mobileDrawer.classList.add('-translate-x-full');}});
+</script>
+</body>
+</html>

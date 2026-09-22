@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En Tus Zapatos</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Mukta+Mahee:wght@400;700&family=Bangers&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFBF0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:'Mukta Mahee',sans-serif;color:#111;position:relative}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url('patron huellas.png');
+  background-size:220px;
+  background-repeat:repeat;
+  opacity:0.80;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* REEMPLAZA ESTO - ESTE ES EL FIX REAL */
+.logo-linea{
+  font-family:'Bangers',cursive;
+  font-size:clamp(36px, 7vw, 62px);
+  letter-spacing:1px;
+  -webkit-text-stroke:2.5px #000;
+  text-shadow:4px 4px 0 #000;
+  display:flex; justify-content:center; align-items:center; gap:2px;
+  line-height:1;
+}
+.logo-linea .en{color:#E53935 !important}
+.logo-linea .tus{color:#7B2CF0 !important}
+.logo-linea .zap{color:#FF6FAE !important}
+.logo-linea .a-azul{color:#2EC4FF !important}
+.logo-linea .tos{color:#E7D600 !important}
+
+.top{background:#fff;border-bottom:3px solid #000;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+.top-left{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:12px;
+}
+.top-left .logo-linea{font-size:28px !important; text-shadow:2px 2px 0 #000; -webkit-text-stroke:1.8px #000; margin:0 !important}
+.top-left img{height:46px;object-fit:contain}
+.top.logo-linea{font-size:28px; text-shadow:2px 2px 0 #000; -webkit-text-stroke:1.8px #000}
+.hero{text-align:center;padding:24px 0 10px;display:flex;flex-direction:column;align-items:center}
+.hero .logo-linea{font-size:62px !important; margin-left:35px}
+.sub{max-width:620px;margin:18px auto 0;font-size:18px;line-height:1.4}
+.familiarizate{margin-top:36px;font-weight:700;opacity:.7;font-size:15px}
+.ruleta-box{background:#fff;border:3px solid #000;border-radius:32px;padding:28px 20px;max-width:560px;margin:30px auto;text-align:center;box-shadow:8px 8px 0 #000}
+.ruleta-wrap{position:relative;width:300px;height:300px;margin:18px auto}
+#canvasRuleta{width:300px;height:300px;border-radius:50%;border:4px solid #000;display:block;transition:transform 3.2s cubic-bezier(.15,.8,.2,1)}
+.flecha{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:26px solid #000;z-index:5}
+.flecha::after{content:'';position:absolute;top:-24px;left:-10px;border-left:10px solid transparent;border-right:10px solid transparent;border-top:16px solid #FFD600;width:0;height:0}
+.btn{background:#000;color:#fff;border:none;border-radius:999px;padding:14px 28px;font-family:'Fredoka';font-size:16px;cursor:pointer}
+.roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0 48px}
+.role{border:3px solid #000;border-radius:20px;padding:16px;text-align:center;color:#000;background:#fff;font-weight:700;box-shadow:4px 4px 0 #000;font-family:'Fredoka';text-transform:capitalize;cursor:pointer;transition:all.25s ease}
+.role small{display:block;font-weight:400;margin-top:4px;font-size:13px;font-family:'Mukta Mahee';text-transform:none}
+.role:hover{transform:scale(1.10) translateY(-5px);box-shadow:8px 8px 0 #000;filter:brightness(1.05)}
+.role.abuela-centrada{grid-column:1 / -1; width:calc(50% - 7px); justify-self:center}
+.qr-card{background:#fff;border:3px solid #000;border-radius:28px;padding:30px 22px;max-width:560px;margin:0 auto 36px;text-align:center;box-shadow:8px 8px 0 #000}
+.qr-box{width:100%;max-width:280px;height:280px;margin:16px auto;border:3px dashed #000;border-radius:16px;display:grid;place-items:center;background:#F6F6F6;font-weight:700}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.social{display:flex;gap:20px;justify-content:center;margin:28px 0 10px}
+.social a{width:44px;height:44px;background:#000;border-radius:50%;display:grid;place-items:center;text-decoration:none;border:2px solid #fff;outline:2px solid #000}
+.social a svg{width:20px;height:20px;fill:#fff}
+footer{padding:26px;text-align:center;font-size:12px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;place-items:center;z-index:99;padding:20px}
+.modal.on{display:grid}
+.modal-card{background:#fff;border:3px solid #000;border-radius:24px;padding:28px;max-width:440px;width:100%;text-align:center;box-shadow:8px 8px 0 #000}
+.modal-card textarea{width:100%;margin-top:14px;border:2px solid #000;border-radius:12px;padding:12px;min-height:85px;font-family:'Mukta Mahee';resize:none}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-left">
+    <img src="Logo actual.png" alt="Logo actual" onerror="this.style.display='none'">
+    <div class="logo-linea">
+      <span class="en">EN</span><span class="tus">TUS</span><span class="zap">ZAP</span><span class="a-azul">A</span><span class="tos">TOS</span>
+    </div>
+  </div>
+  <div style="font-family:'Fredoka';font-size:12px;opacity:.6">Juego familiar</div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="logo-linea">
+      <span class="en">EN</span><span class="tus">TUS</span><span class="zap">ZAP</span><span class="a-azul">A</span><span class="tos">TOS</span>
+    </div>
+    <p class="sub">Un juego para mejorar la empatía y entender a tu familia mientras se divierten.</p>
+    <p class="familiarizate">Prueba la ruleta de abajo, familiarízate antes de jugar</p>
+  </section>
+
+  <section class="ruleta-box">
+    <h2 style="font-size:22px">Gira y ponte en otros zapatos</h2>
+    <div class="ruleta-wrap"><div class="flecha"></div><canvas id="canvasRuleta" width="300" height="300"></canvas></div>
+    <button class="btn" id="btnGirar">GIRAR RULETA</button>
+    <div id="res" style="margin-top:14px;min-height:24px;font-weight:700;font-family:'Fredoka'"></div>
+  </section>
+
+  <section>
+    <h2 style="text-align:center;font-size:24px">¿En qué zapatos te toca hoy?</h2>
+    <div class="roles-grid">
+      <div class="role" data-rol="Mamá" style="border-color:#4F0377">Mamá<small>Empatía y cuidado</small></div>
+      <div class="role" data-rol="Papá" style="border-color:#1D3E89">Papá<small>Responsabilidad</small></div>
+      <div class="role" data-rol="Hija" style="border-color:#AE00BC">Hija<small>Amistad y límites</small></div>
+      <div class="role" data-rol="Hijo" style="border-color:#00A0A0">Hijo<small>Miedos escolares</small></div>
+      <div class="role" data-rol="Mascota" style="border-color:#AD7E40">Mascota<small>Busca cariño</small></div>
+      <div class="role" data-rol="Abuelo" style="border-color:#D9C96A">Abuelo<small>Sabiduría</small></div>
+      <div class="role abuela-centrada" data-rol="Abuela" style="border-color:#C2185B">Abuela<small>Historias y ternura</small></div>
+    </div>
+  </section>
+
+  <section class="qr-card">
+    <h2>Escanea y comparte</h2>
+    <div class="qr-box">QR AQUÍ</div>
+    <div class="logo-linea" style="margin-top:18px;font-size:44px">
+      <span class="en">EN</span><span class="tus">TUS</span><span class="zap">ZAP</span><span class="a-azul">A</span><span class="tos">TOS</span>
+    </div>
+  </section>
+
+  <div class="social">
+    <a href="https://www.instagram.com/entuszapatos00" target="_blank"><svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.5A5.5 5.5 0 1 0 12 17.5 5.5 5.5 0 0 0 12 6.5zm0 2A3.5 3.5 0 1 1 12 15.5 3.5 3.5 0 0 1 12 8.5zm5.5-3.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></a>
+    <a href="https://www.facebook.com/share/1DpdjmsoAp/" target="_blank"><svg viewBox="0 0 24 24"><path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v3H7v3h3v4h3v-4h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=entuszapatos224@gmail.com" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5h16zM4 8v10h16V8l-8 5-8-5z"/>
+  </svg>
+</a>
+  </div>
+</div>
+
+<div id="modalRuleta" class="modal"><div class="modal-card"><h3 id="mRol" style="font-family:'Fredoka';font-size:28px"></h3><p id="mSit" style="margin:14px 0;color:#444"></p><textarea id="mRespuesta" placeholder="¿Qué harías tú?"></textarea><button class="btn" style="margin-top:14px" onclick="closeModals()">Guardar</button></div></div>
+<div id="modalRol" class="modal"><div class="modal-card"><h3 id="mRol2" style="font-family:'Fredoka';font-size:26px"></h3><p id="mExp" style="margin:14px 0;color:#444"></p><textarea id="mExpRespuesta" placeholder="Cuéntanos una breve experiencia..."></textarea><button class="btn" style="margin-top:14px" onclick="closeModals()">Listo</button></div></div>
+
+<footer>© 2026 En Tus Zapatos</footer>
+
+<script>
+const situaciones={'Mamá':['Te levantaste a las 5am e hiciste todo y aún debes trabajar.'],'Papá':['Llegas cansado y tu hijo quiere jugar.'],'Hija':['Quieres salir con amigas pero debes cuidar a tu hermano.'],'Hijo':['Sacaste mala nota y temes contarlo.'],'Mascota':['Todos ocupados y solo quieres cariño.'],'Abuelo':['Quieres contar una historia y todos están con el celular.'],'Abuela':['Hiciste tu comida favorita y nadie prueba.']};
+const experiencias={'Mamá':'Recuerda la última vez que mamá se levantó primero y se acostó de última.','Papá':'Piensa cuando papá dijo no por responsabilidad.','Hija':'Cuando tu hija quiso contar algo y estaban distraídos.','Hijo':'Tu hijo guarda miedos que no dice.','Mascota':'La mascota no habla pero siente todo.','Abuelo':'El abuelo guarda historias.','Abuela':'La abuela a veces se siente invisible.'};
+const roles=[{n:'Mamá',c:'#4F0377'},{n:'Papá',c:'#1D3E89'},{n:'Hija',c:'#AE00BC'},{n:'Hijo',c:'#00A0A0'},{n:'Mascota',c:'#AD7E40'},{n:'Abuelo',c:'#D9C96A'},{n:'Abuela',c:'#C2185B'}];
+const canvas=document.getElementById('canvasRuleta'); const ctx=canvas.getContext('2d'); const ang=360/roles.length; let rot=0, girando=false;
+function dibujarRuleta(){
+  const cx=150, cy=150, r=140; ctx.clearRect(0,0,300,300);
+  roles.forEach((rol,i)=>{
+    const s=(i*ang-90)*Math.PI/180, e=((i+1)*ang-90)*Math.PI/180;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,s,e); ctx.closePath();
+    ctx.fillStyle=rol.c; ctx.fill(); ctx.strokeStyle='#000'; ctx.lineWidth=3; ctx.stroke();
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate((s+e)/2);
+    ctx.textAlign='right'; ctx.fillStyle='#fff'; ctx.font='700 14px Fredoka'; ctx.fillText(rol.n, r-18, 5); ctx.restore();
+  });
+}
+dibujarRuleta();
+function girar(){
+  if(girando) return; girando=true; rot+=1800 + Math.random()*1440; canvas.style.transform=`rotate(${rot}deg)`;
+  setTimeout(()=>{
+    const norm=(360-(rot%360))%360; const idx=Math.floor(norm/ang)%roles.length; const rol=roles[idx];
+    document.getElementById('res').innerHTML=`<span style="color:${rol.c}">¡Te tocó: ${rol.n}!</span>`;
+    document.getElementById('mRol').textContent=rol.n; document.getElementById('mRol').style.color=rol.c;
+    document.getElementById('mSit').textContent=situaciones[rol.n][0];
+    document.getElementById('modalRuleta').classList.add('on'); girando=false;
+  },3200);
+}
+function closeModals(){document.getElementById('modalRuleta').classList.remove('on');document.getElementById('modalRol').classList.remove('on')}
+document.getElementById('btnGirar').onclick=girar;
+document.querySelectorAll('.role').forEach(el=>{
+  el.onclick=()=>{
+    const r=el.dataset.rol; const col=roles.find(x=>x.n===r).c;
+    document.getElementById('mRol2').textContent=r; document.getElementById('mRol2').style.color=col;
+    document.getElementById('mExp').textContent=experiencias[r];
+    document.getElementById('modalRol').classList.add('on');
+  }
+});
+</script>
+</body>
+</html>

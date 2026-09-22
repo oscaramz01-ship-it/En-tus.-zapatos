@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vista Previa - En tus zapatos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mukta+Mahee:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+body{background-color:#EDE9FF; background-image: radial-gradient(#EBECEF 2px, transparent 2px); background-size: 32px 32px;}
+.blob-badge{background-color:#6210CC; border-radius:40% 60% 70% 30% / 50% 30% 70% 50%;}
+.shoe-sprite{width:120px;height:140px;background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuDu1wjKywZQHnKuIRYG1vbJbml_PIjZRJCOg5aTCJNjuD_Jz8Ta7XCqpByNIKfgAofWWWgIEyo7-Yp3O1tZhO8rReXXHiuFUehFzixof_PAVuoL2xX5rIQ6NS1RW_lxhKkZ4cl3J7WjW8e1gjKOhOL9_QrzyNExIpRqeWxVwtCvy2HE0LLKmTmX6UXJPnbJ9f0F3rn-7WKa2oCNWrvM4sy7mEd1zWWjqrq2Gd4SGh2Wu7Z-sT98LoPeoxIva-p0Ny0ktQ');background-size:200% 200%;margin:0 auto;transform:rotate(-15deg);}
+.shoe-sprite.mama{background-position:0% 0%}.shoe-sprite.papa{background-position:100% 0%}.shoe-sprite.hija{background-position:0% 100%}.shoe-sprite.hijo{background-position:100% 100%}
+.question-badge{position:absolute;top:5px;right:10px;width:28px;height:28px;background:white;border:1.5px solid black;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Fredoka';font-size:14px;z-index:10;}
+.shadow-dot{width:40px;height:6px;background:rgba(0,0,0,0.15);border-radius:50%;margin:8px auto;}
+#mobile-drawer{transition:transform 0.3s ease-in-out;}
+</style>
+</head>
+<body class="min-h-screen flex antialiased">
+
+<header class="bg-[#fff7fc] text-primary flex justify-between items-center px-4 md:px-10 h-16 w-full fixed top-0 z-50 shadow-[0px_4px_10px_rgba(0,0,0,0.15)]">
+<div class="flex items-center gap-4">
+<button id="menu-btn" class="lg:hidden p-2 text-[#4F0377]"><span class="material-symbols-outlined">menu</span></button>
+<span class="font-bold text-[22px] text-[#4F0377]" style="font-family:'Fredoka'">En tus zapatos</span>
+</div>
+<div class="flex items-center gap-4">
+  <div class="relative">
+    <button id="profile-btn" class="w-11 h-11 rounded-full bg-[#D9B8FF] flex items-center justify-center" aria-label="Perfil"><span class="material-symbols-outlined text-[#4F0377]" style="font-variation-settings:'FILL' 1">person</span></button>
+    <div id="profile-menu" class="absolute right-0 top-full mt-2 w-64 bg-[#4F0377] text-white shadow-lg rounded-[24px] border border-white/20 opacity-0 invisible scale-95 transition-all duration-200 z-[70] py-2 origin-top-right">
+      <div class="px-4 py-2 border-b border-white/20 mb-1">
+        <p class="font-bold">Editar perfil</p>
+        <div class="mt-2 space-y-1">
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">person</span><span>Nombre</span></a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">image</span><span>Foto de perfil</span></a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">group</span><span>Grupos</span></a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">call</span><span>Teléfono</span></a>
+          <a class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg text-[14px]" href="#"><span class="material-symbols-outlined text-xl">mail</span><span>Correo</span></a>
+        </div>
+      </div>
+      <div class="py-1">
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">manage_accounts</span><span>Cuenta</span></a>
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">link</span><span>Enlaces</span></a>
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">qr_code_2</span><span>QR</span></a>
+      </div>
+      <div class="border-t border-white/20 mt-1 pt-1">
+        <a class="flex items-center gap-3 px-4 py-2 hover:bg-white/10 text-[14px]" href="#"><span class="material-symbols-outlined">logout</span><span>Cerrar sesión</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<nav id="mobile-drawer" class="bg-[#4F0377] text-white rounded-r-[24px] h-full w-80 shadow-lg fixed inset-y-0 left-0 z-[60] flex flex-col pt-20 pb-8 -translate-x-full lg:translate-x-0" style="font-family:'Mukta Mahee'">
+  <div class="px-6 pb-6 border-b border-white/20 mb-4">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-white overflow-hidden flex items-center justify-center shrink-0">
+        <img src="../images/logo.png" alt="Logo En tus zapatos" class="w-10 h-10 object-contain">
+      </div>
+      <div><h2 class="font-bold text-white text-[18px]" style="font-family:'Fredoka'">En tus zapatos</h2><p class="text-[12px] text-white/80">Caminando juntos</p></div>
+    </div>
+  </div>
+  <div class="flex-1 overflow-y-auto py-2">
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="inicio.html"><span class="material-symbols-outlined">home</span><span>Inicio</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="roles.html"><span class="material-symbols-outlined">groups</span><span>Roles</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="ruleta-de-familia.html"><span class="material-symbols-outlined">casino</span><span>Ruleta de familia</span></a>
+    <a class="bg-white text-[#4F0377] rounded-full mx-2 px-4 py-3 flex items-center gap-4 mt-2 font-bold shadow" href="vista-previa.html"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">visibility</span><span>Vista Previa</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="salas.html"><span class="material-symbols-outlined">meeting_room</span><span>Salas</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="crea-sala.html"><span class="material-symbols-outlined">add_circle</span><span>Crea Sala</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="votar.html"><span class="material-symbols-outlined">how_to_vote</span><span>Votar</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="puntos.html"><span class="material-symbols-outlined">star</span><span>Puntos</span></a>
+    <a class="text-white/80 mx-2 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full mt-2" href="#"><span class="material-symbols-outlined">help</span><span>Ayuda</span></a>
+  </div>
+  <div class="px-4 py-4 border-t border-white/20"><a class="text-white/80 px-4 py-3 flex items-center gap-4 hover:bg-white/10 rounded-full" href="#"><span class="material-symbols-outlined">settings</span><span>Ajustes</span></a></div>
+</nav>
+
+<main class="flex-1 w-full lg:pl-80 pt-20 pb-24 min-h-screen flex flex-col items-center relative z-10 overflow-hidden" style="background-color:#EDE9FF">
+<div class="absolute bottom-10 right-0 w-40 h-40 bg-[#D9B8FF] rounded-full opacity-60 z-0 pointer-events-none"></div>
+<div class="absolute bottom-0 right-10 w-56 h-56 bg-gradient-to-br from-[#D9B8FF] to-[#FFD1E8] rounded-full opacity-60 z-0 pointer-events-none"></div>
+
+<div class="relative w-[340px] h-32 mt-6 flex items-center justify-center z-10">
+<div class="blob-badge absolute inset-0 w-full h-full shadow-lg rotate-[-2deg]"></div>
+<h1 class="relative font-black text-[38px] text-white uppercase z-10" style="font-family:'Fredoka'">VISTA PREVIA</h1>
+</div>
+
+<h2 class="font-black text-center text-[16px] mt-4 max-w-[280px] uppercase z-10" style="font-family:'Fredoka'">ELIGE EL ROL Y SOLUCIONA LOS PROBLEMAS</h2>
+
+<div class="grid grid-cols-2 gap-x-12 gap-y-10 mt-8 w-full max-w-[360px] px-4 z-10">
+<div class="flex flex-col items-center relative"><div class="relative"><div class="question-badge">?</div><div class="shoe-sprite mama"></div></div><div class="shadow-dot"></div><button class="bg-[#6210CC] text-white text-[16px] py-2.5 px-8 rounded-full shadow-md mt-2 font-bold" style="font-family:'Fredoka'">MAMA</button></div>
+<div class="flex flex-col items-center relative"><div class="relative"><div class="question-badge">?</div><div class="shoe-sprite papa"></div></div><div class="shadow-dot"></div><button class="bg-[#6210CC] text-white text-[16px] py-2.5 px-8 rounded-full shadow-md mt-2 font-bold" style="font-family:'Fredoka'">PAPA</button></div>
+<div class="flex flex-col items-center relative"><div class="relative"><div class="question-badge">?</div><div class="shoe-sprite hija"></div></div><div class="shadow-dot"></div><button class="bg-[#6210CC] text-white text-[16px] py-2.5 px-8 rounded-full shadow-md mt-2 font-bold" style="font-family:'Fredoka'">HIJA</button></div>
+<div class="flex flex-col items-center relative"><div class="relative"><div class="question-badge">?</div><div class="shoe-sprite hijo"></div></div><div class="shadow-dot"></div><button class="bg-[#6210CC] text-white text-[16px] py-2.5 px-8 rounded-full shadow-md mt-2 font-bold" style="font-family:'Fredoka'">HIJO</button></div>
+</div>
+
+<div class="w-32 h-1.5 bg-[#8B5CF6] rounded-full mt-16 lg:hidden relative z-50"></div>
+</main>
+
+<script>
+  const menuBtn=document.getElementById('menu-btn'),profileBtn=document.getElementById('profile-btn'),mobileDrawer=document.getElementById('mobile-drawer'),profileMenu=document.getElementById('profile-menu');
+  menuBtn.addEventListener('click',(e)=>{e.stopPropagation();mobileDrawer.classList.toggle('-translate-x-full');profileMenu.classList.add('opacity-0','invisible','scale-95');});
+  profileBtn.addEventListener('click',(e)=>{e.stopPropagation();profileMenu.classList.toggle('opacity-0');profileMenu.classList.toggle('invisible');profileMenu.classList.toggle('scale-95');mobileDrawer.classList.add('-translate-x-full');});
+  document.addEventListener('click',(e)=>{if(!profileMenu.contains(e.target)&&!profileBtn.contains(e.target)){profileMenu.classList.add('opacity-0','invisible','scale-95');}if(!mobileDrawer.contains(e.target)&&!menuBtn.contains(e.target)&&window.innerWidth<1024){mobileDrawer.classList.add('-translate-x-full');}});
+</script>
+</body></html>
